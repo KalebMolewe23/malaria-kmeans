@@ -25,7 +25,6 @@
                             <td><?= $c1->X ?></td>
                             <td><?= $c1->Z ?></td>
                         <?php } ?>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +42,9 @@
                             <td align="center"><?= $value->total_positif; ?></td>
                             <td align="center"><?= $value->ibu_hamil; ?></td>
                             <td colspan="3" align="center"><?php
-                                                            $hc1 = sqrt(pow(($value->konfirmasi_lab - $c1->Y), 2) + pow(($value->total_positif - $c1->X), 2) + pow(($value->ibu_hamil - $c1->Y), 2));
-                                                            echo $hc1;
-                                                            ?></td>
+                                $hc1 = sqrt(pow(($value->konfirmasi_lab - $c1->Y), 2) + pow(($value->total_positif - $c1->X), 2) + pow(($value->ibu_hamil - $c1->Z), 2));
+                                echo $hc1;
+                                ?></td>
                         </tr>
                     <?php
                         $q = "insert into datacluster_distance_k3_1(id_malaria,distance) values('" . $value->id_malaria . "','" . $hc1 . "')";
@@ -87,9 +86,9 @@
                             <td align="center"><?= $value2->total_positif; ?></td>
                             <td align="center"><?= $value2->ibu_hamil; ?></td>
                             <td colspan="3" align="center"><?php
-                                                            $hc2 = sqrt(pow(($value2->konfirmasi_lab - $c2->Y), 2) + pow(($value2->total_positif - $c2->X), 2) + pow(($value2->ibu_hamil - $c2->Z), 2));
-                                                            echo $hc2;
-                                                            ?></td>
+                                $hc2 = sqrt(pow(($value2->konfirmasi_lab - $c2->Y), 2) + pow(($value2->total_positif - $c2->X), 2) + pow(($value2->ibu_hamil - $c2->Z), 2));
+                                echo $hc2;
+                                ?></td>
                         </tr>
                     <?php
                         $q = "insert into datacluster_distance_k3_2(id_malaria,distance) values('" . $value2->id_malaria . "','" . $hc2 . "')";

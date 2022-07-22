@@ -56,11 +56,11 @@
                 $c1c = $c->data3;
 
                 $c2a = $c2->data1;
-                $c2b = $c2->data1;
+                $c2b = $c2->data2;
                 $c2c = $c2->data3;
 
                 $c3a = $c3->data1;
-                $c3b = $c3->data1;
+                $c3b = $c3->data2;
                 $c3c = $c3->data3;
 
                 $c1a_b = "";

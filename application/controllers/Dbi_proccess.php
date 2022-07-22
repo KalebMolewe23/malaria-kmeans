@@ -90,10 +90,10 @@ class Dbi_proccess extends CI_Controller {
         $this->db->where('idhasil_centroid_k3 =', 1);
         $dbi['data'] = $this->db->get("hasil_centroid_k3")->result();
         
-        $this->db->where('idhasil_centroid_k3 =', 2);
+        $this->db->where('idhasil_centroid_k3 =', 1);
         $dbi['data2'] = $this->db->get("hasil_centroid_k3")->result();
 
-        $this->db->where('idhasil_centroid_k3 =', 2);
+        $this->db->where('idhasil_centroid_k3 =', 1);
         $dbi['data3'] = $this->db->get("hasil_centroid_k3")->result();
 
         $this->load->view('layout/header', $data);
