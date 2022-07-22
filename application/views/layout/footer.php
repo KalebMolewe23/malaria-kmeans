@@ -13,6 +13,6 @@
             sidebar.classList.toggle("close");
         });
     </script>
-    </body>
+</body>
 
-    </html>
+</html>

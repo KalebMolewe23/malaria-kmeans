@@ -17,13 +17,12 @@ class Admin extends CI_Controller
     public function index()
     {
 
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['title'] = "Data Awal";
 
-        $data['title'] = 'Home';
-        $wilayah['malaria'] = $this->m_daerah->data_puskesmas();
+        $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+        $metode['malaria'] = $this->db->get("data_malaria")->result();
         $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/home', $wilayah);
+        $this->load->view('admin/home', $metode);
         $this->load->view('admin/templates/footer');
     }
 

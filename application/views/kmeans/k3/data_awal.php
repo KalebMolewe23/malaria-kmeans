@@ -17,14 +17,15 @@
                             <th scope="col">Jumlah Penduduk</th>
                             <th scope="col">konfrimasi Lab</th>
                             <th scope="col">Total Positif</th>
+                            <th scope="col">Ibu Hamil</th>
                             <th scope="col">Persentase</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        $this->db->query('truncate table data_kmeans_k2');
-                        foreach ($malaria as $value) {
+                        $this->db->query('truncate table data_kmeans_k3');
+                        foreach ($kmeans as $value) {
                         ?>
                             <tr>
                                 <th scope="row"><?= $no++; ?></th>
@@ -33,10 +34,11 @@
                                 <td><?= $value->jumlah_penduduk; ?></td>
                                 <td><?= $value->konfirmasi_lab; ?></td>
                                 <td><?= $value->total_positif; ?></td>
-                                <td><?= $value->persentase ?></td>
+                                <td><?= $value->ibu_hamil; ?></td>
+                                <td><?= $value->persentase; ?></td>
                             </tr>
                         <?php
-                            $save_data = "insert into data_kmeans_k2(id_malaria,nama_puskesmas,jumlah_penduduk,konfirmasi_lab,total_positif,persentase) values('" . $value->id_malaria . "','" . $value->nama_puskesmas . "', '" . $value->jumlah_penduduk . "','" . $value->konfirmasi_lab . "','" . $value->total_positif . "','" . $value->persentase . "')";
+                            $save_data = "insert into data_kmeans_k3(id_malaria,nama_puskesmas,jumlah_penduduk,konfirmasi_lab,total_positif,ibu_hamil,persentase) values('" . $value->id_malaria . "','" . $value->nama_puskesmas . "', '" . $value->jumlah_penduduk . "','" . $value->konfirmasi_lab . "','" . $value->total_positif . "','" . $value->ibu_hamil . "','" . $value->persentase . "')";
                             $this->db->query($save_data);
                         }
                         ?>
@@ -57,7 +59,7 @@
                     </div>
 
                     <div class="col-sm-2">
-                        <a href="<?= base_url("kmeans/centroid_k2"); ?>"><button type="button" class="btn btn-primary">Centroid Awal</button></a>
+                        <a href="<?= base_url("kmeans/centroid_k3"); ?>"><button type="button" class="btn btn-primary">Centroid Awal</button></a>
                     </div>
                 </div>
 
