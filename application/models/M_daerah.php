@@ -2,7 +2,7 @@
 class M_daerah extends CI_Model
 {
     
-    function get_rumahsakit()
+    function get_puskesmas()
     {
         return $this->db->get('puskesmas')->result();
     }
@@ -25,8 +25,7 @@ class M_daerah extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function edit_daerah($where,$table){
-        $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+    public function edit_puskesmas($where,$table){
         return  $this->db->get_where($table,$where);
     }
 
@@ -87,22 +86,22 @@ class M_daerah extends CI_Model
         return $this->db->get()->result();
     }
 
-    function get_puskesmas($id_penduduk)
-    {
-        //ambil data kabupaten berdasarkan id provinsi yang dipilih
-        $this->db->where('id_penduduk', $id_penduduk);
-        $this->db->order_by('jumlah_penduduk', 'ASC');
-        $query = $this->db->get('data_penduduk');
+    // function get_puskesmas($id_penduduk)
+    // {
+    //     //ambil data kabupaten berdasarkan id provinsi yang dipilih
+    //     $this->db->where('id_penduduk', $id_penduduk);
+    //     $this->db->order_by('jumlah_penduduk', 'ASC');
+    //     $query = $this->db->get('data_penduduk');
 
-        $output = '<option value="">-- Pilih Puskesmas --</option>';
+    //     $output = '<option value="">-- Pilih Puskesmas --</option>';
 
-        //looping data
-        foreach ($query->result() as $row) {
-            $output .= '<option value="' . $row->id_penduduk . '">' . $row->jumlah_penduduk . '</option>';
-        }
-        //return data kabupaten
-        return $output;
-    }
+    //     //looping data
+    //     foreach ($query->result() as $row) {
+    //         $output .= '<option value="' . $row->id_penduduk . '">' . $row->jumlah_penduduk . '</option>';
+    //     }
+    //     //return data kabupaten
+    //     return $output;
+    // }
 
     function selectdata($where = '')
     {
@@ -233,5 +232,53 @@ class M_daerah extends CI_Model
         $result = $this->db->query($query)->result_array();
         return $result;
     }
+
+    public function getData(){
+		$this->db->select('*');
+		return $this->db->get('data_malaria_baru')->result_array();
+	}
+
+    public function getData_2020(){
+		$this->db->select('*');
+		return $this->db->get('data_malaria_baru_2020')->result_array();
+	}
+
+    public function insert($data){
+		$insert = $this->db->insert_batch('data_malaria_baru', $data);
+		if($insert){
+			return true;
+		}
+	}
+
+    public function insert_2020($data){
+		$insert = $this->db->insert_batch('data_malaria_baru_2020', $data);
+		if($insert){
+			return true;
+		}
+	}
+
+    public function hapus_malaria($checked_id)
+	{
+		$this->db->where_in('idmalaria_baru', $checked_id);
+		return $this->db->delete('data_malaria_baru');
+	}
+
+    public function hapus_puskesmas($checked_id)
+	{
+		$this->db->where_in('id_puskesmas', $checked_id);
+		return $this->db->delete('puskesmas');
+	}
+
+    public function hapus_data_malaria($checked_id)
+	{
+		$this->db->where_in('iddata_malaria', $checked_id);
+		return $this->db->delete('data_malaria');
+	}
+
+    public function hapus_malaria_2020($checked_id)
+	{
+		$this->db->where_in('idmalaria_baru2020', $checked_id);
+		return $this->db->delete('data_malaria_baru_2020');
+	}
 
 }

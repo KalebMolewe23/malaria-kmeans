@@ -12,6 +12,7 @@
                 <thead>
                     <tr align="center">
                         <td rowspan="2">#</td>
+                        <td rowspan="2">Nama Puskesmas</td>
                         <td rowspan="2">Belum Vaksin Gel. 1</td>
                         <td rowspan="2">Belum Vaksin Gel. 2</td>
                         <td colspan="1">Y</td>
@@ -35,12 +36,13 @@
                         <tr>
                             <input type="hidden" value="<?= $value->iddata_malaria ?>">
                             <td align="center"><?= $no++ ?></td>
+                            <td align="center"><?= $value->nama_puskesmas; ?></td>
                             <td align="center"><?= $value->konfirmasi_lab; ?></td>
                             <td align="center"><?= $value->total_positif; ?></td>
                             <td colspan="2" align="center"><?php
-                                $hc1 = sqrt(pow(($value->konfirmasi_lab - $c1->Y), 2) + pow(($value->total_positif - $c1->X), 2));
-                                echo $hc1;
-                            ?></td>
+                                                            $hc1 = sqrt(pow(($value->konfirmasi_lab - $c1->Y), 2) + pow(($value->total_positif - $c1->X), 2));
+                                                            echo $hc1;
+                                                            ?></td>
                         </tr>
                     <?php
                         $q = "insert into datacluster_distance_k2_1(iddata_malaria,distance) values('" . $value->iddata_malaria . "','" . $hc1 . "')";
@@ -54,6 +56,7 @@
                 <thead>
                     <tr align="center">
                         <td rowspan="2">#</td>
+                        <td rowspan="2">Nama Puskesmas</td>
                         <td rowspan="2">Belum Vaksin Gel. 1</td>
                         <td rowspan="2">Belum Vaksin Gel. 2</td>
                         <td colspan="1">Y</td>
@@ -75,12 +78,13 @@
                         <tr>
                             <input type="hidden" value="<?= $value2->iddata_malaria ?>">
                             <td align="center"><?= $no++ ?></td>
+                            <td align="center"><?= $value2->nama_puskesmas; ?></td>
                             <td align="center"><?= $value2->konfirmasi_lab; ?></td>
                             <td align="center"><?= $value2->total_positif; ?></td>
                             <td colspan="2" align="center"><?php
-                                $hc2 = sqrt(pow(($value2->konfirmasi_lab - $c2->Y), 2) + pow(($value2->total_positif - $c2->X), 2));
-                                echo $hc2;
-                            ?></td>
+                                                            $hc2 = sqrt(pow(($value2->konfirmasi_lab - $c2->Y), 2) + pow(($value2->total_positif - $c2->X), 2));
+                                                            echo $hc2;
+                                                            ?></td>
                         </tr>
                     <?php
                         $q = "insert into datacluster_distance_k2_2(iddata_malaria,distance) values('" . $value2->iddata_malaria . "','" . $hc2 . "')";

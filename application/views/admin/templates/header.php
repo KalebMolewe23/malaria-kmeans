@@ -22,8 +22,8 @@
 <body>
     <div class="sidebar close">
         <div class="logo-details">
-            <i class='bx bx-user-circle'></i>
-            <span class="logo_name">VAKSINZONE</span>
+            <i class='bx bxs-virus'></i>
+            <span class="logo_name">MALARIA</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -36,7 +36,7 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Informasi</a></li>
-                    <li><a href="<?= base_url("data/index"); ?>">Master Daerah</a></li>
+                    <li><a href="<?= base_url("area/index"); ?>">Master Daerah</a></li>
                     <li><a href="<?= base_url("data/datavaksin"); ?>">Data</a></li>
                 </ul>
             </li>

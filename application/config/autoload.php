@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session', 'calendar','encrypt','uplo
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'file', 'form', 'text', 'date', 'captcha', 'string', 'html','security','vaksin');
+$autoload['helper'] = array('url', 'file', 'form', 'text', 'date', 'captcha', 'string', 'html','security','malaria');
 
 
 /*
