@@ -54,14 +54,14 @@
             <span class="logo_name">MALARIA</span>
         </div>
         <ul class="nav-links">
-            <li>
+            <!-- <li>
                 <div class="iocn-link">
                     <a href="<?= base_url("administrator/dashboard/index"); ?>" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
                         <i class='bx bx-grid'></i>
                         <span class="link_name">Dashboard</span>
                     </a>
                 </div>
-            </li>
+            </li> -->
             <li>
                 <div class="iocn-link">
                     <a href="<?= base_url("administrator/data/index"); ?>">
@@ -80,9 +80,16 @@
                 <div class="iocn-link">
                     <a href="<?= base_url("administrator/proses/index"); ?>">
                         <i class='bx bx-book-reader'></i>
-                        <span class="link_name">Hasil Perhitungan</span>
+                        <span class="link_name">Proses Perhitungan</span>
                     </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
                 </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Proses Perhitungan</a></li>
+                    <li><a href="<?= base_url("administrator/kmeans/index"); ?>">Kmeans</a></li>
+                    <li><a href="<?= base_url("administrator/kmeans/iterasi_hasil"); ?>">DBI</a></li>
+                    <li><a href="<?= base_url("administrator/proses/index"); ?>">Pengelompokan</a></li>
+                </ul>
             </li>
             <li>
                 <div class="iocn-link">

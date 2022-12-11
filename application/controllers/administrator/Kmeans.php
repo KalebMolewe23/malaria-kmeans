@@ -9,9 +9,9 @@ class Kmeans extends CI_Controller {
         $data_malaria['malaria'] = $this->db->get('data_malaria');
 
         $data_title['title'] = 'Proses Perhitungan Kmeans';
-        $this->load->view('kmeans/layout/header', $data_title);
+        $this->load->view('layout/header', $data_title);
         $this->load->view('kmeans/data_awal', $data_malaria);
-        $this->load->view('kmeans/layout/footer');
+        $this->load->view('layout/footer');
     }
 
     public function iterasi_lanjut()
@@ -77,9 +77,9 @@ class Kmeans extends CI_Controller {
 		{
 			$datas['title'] = 'Iterasi Lanjut';
 
-				$this->load->view('kmeans/layout/header', $datas);
+				$this->load->view('layout/header', $datas);
 				$this->load->view('kmeans/iterasi_lanjut', $data);
-				$this->load->view('kmeans/layout/footer');
+				$this->load->view('layout/footer');
 			}
     }
 
@@ -93,9 +93,9 @@ class Kmeans extends CI_Controller {
 				$this->db->select('max(iterasi) as iterasi');
 				$data['centroid_c1'] = $this->db->get('centroid_temp')->row('iterasi');
 
-        $this->load->view('kmeans/layout/header', $datas);
+        $this->load->view('layout/header', $datas);
         $this->load->view('kmeans/hasil_iterasi', $data);
-        $this->load->view('kmeans/layout/footer');
+        $this->load->view('layout/footer');
     }
 
 		function dbi_lanjut(){
@@ -106,9 +106,9 @@ class Kmeans extends CI_Controller {
 				$data['c2'] = $this->db->get('centroid_akhir_c2');
 				$data['c3'] = $this->db->get('centroid_akhir_c3');
 
-				$this->load->view('kmeans/layout/header', $datas);
+				$this->load->view('layout/header', $datas);
 				$this->load->view('kmeans/dbi_lanjut', $data);
-				$this->load->view('kmeans/layout/footer');
+				$this->load->view('layout/footer');
 
 		}
 }

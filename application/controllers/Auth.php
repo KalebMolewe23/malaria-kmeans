@@ -44,7 +44,7 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) { //jika role id 1 yang terpanggil maka tampilan admin yang akan ditampilkan
-                        redirect('administrator/dashboard');
+                        redirect('administrator/data/puskesmas');
                     } else {
                         redirect('user');
                     }
