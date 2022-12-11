@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
         // $this->load->library('form_validation');
         $this->load->model('m_daerah');
         $this->load->library(array('excel','session'));
-        is_logged_in();
+        is_logged_in(); 
     }
 
   public function index(){

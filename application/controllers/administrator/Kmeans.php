@@ -71,7 +71,7 @@ class Kmeans extends CI_Controller {
 					alert("Proses iterasi berakhir pada tahap ke-<?php echo $it; ?>");
 				</script>
 			<?php
-				echo "<meta http-equiv='refresh' content='0; url=".base_url()."kmeans/iterasi_hasil'>";
+				echo "<meta http-equiv='refresh' content='0; url=".base_url()."administrator/kmeans/iterasi_hasil'>";
 		}
 		else
 		{

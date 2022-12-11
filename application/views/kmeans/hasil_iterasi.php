@@ -7,7 +7,7 @@
 
     <main>
         <div class="container-fluid">
-        <a class="btn btn-primary" href="<?php echo base_url(); ?>kmeans/dbi_lanjut">Proses Selanjutnya</a><br><br>
+        <a class="btn btn-primary" href="<?php echo base_url(); ?>administrator/kmeans/dbi_lanjut">Proses Selanjutnya</a><br><br>
         <h5>Hasil Centroid</h5><br><br>
         <table class="table table-bordered table_hover table-striped">
           <thead>
