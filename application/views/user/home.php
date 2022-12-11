@@ -1,94 +1,71 @@
-<nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
-    </label>
-    <label class="logo"><i class="fab fa-mastodon"></i>Malaria</label>
-    <ul>
-        <li><a href="<?= base_url("user"); ?>"><strong>Home</strong></a></li>
-        <li><a href="<?= base_url("user/info_puskesmas"); ?>"><strong>Informasi Puskesmas</strong></a></li>
-        <li><a href="<?= base_url("user/data_malaria"); ?>"><strong>Data Malaria</strong></a></li>
-        <li><a href="<?= base_url("user/about"); ?>"><strong>Tentang Website</strong></a></li>
-        <li><a href="<?= base_url("auth/logout"); ?>"><strong>Log Out</strong></a></li>
-    </ul>
-</nav>
-<section>
-    <div class="container">
-
-        <br>
-        <center>
-            <div id="map" style="width: 600px; height: 400px;"></div>
-        </center>
-
-        <br>
-        <div align="center">
-            <p><strong>Pilih Tingkat Malaria</strong></p>
-            <a href="<?= base_url("user/zona_merah") ?>"><button class="btn btn-danger" type="button">Tinggi</button></a>
-            <a href="<?= base_url("user/zona_kuning") ?>"><button class="btn btn-warning" type="button">Sedang</button></a>
-            <a href="<?= base_url("user/zona_hijau") ?>"><button class="btn btn-success" type="button">Rendah</button></a>
-        </div>
-
-        <br><br>
-        <center>
-            <h3><strong>Data Puskesmas Kab. Monokwari</strong></h3>
-        </center>
-        <br>
-        <table class="table table-bordered table_hover table-striped">
-            <tr>
-                <th>
-                    <center>No.</center>
-                </th>
-                <th>
-                    <center>Nama Puskesmas</center>
-                </th>
-                <th>
-                    <center>Kecamatan</center>
-                </th>
-                <th>
-                    <center>Alamat</center>
-                </th>
-            </tr>
-
-            <?php $no = 1;
-            foreach ($malaria as $inv) : ?>
-                <tr>
-                    <td align="center"><?= $no++ ?></td>
-                    <td align="center"><?= $inv->nama_puskesmas ?></td>
-                    <td align="center"><?= $inv->kecamatan ?></td>
-                    <td align="center"><?= $inv->alamat ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+<section class="home container" id="home">
+  <div class="home-text">
+    <h1>Informasi Data Malaria <br>Daerah Manokwari.</h1>
+    <a href="#" class="btn">Info Selengkapnya</a>
+  </div>
 </section>
 
-<script>
-    var map = L.map('map').setView([-0.861453, 134.062042], 10);
+<section>
+  <div class="container">
+    <div align="center">
+      <h3>Pilih Tahun : </h3>
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_2019">2019</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">2020</button>
+    </div>
+  </div>
+</section>
 
-    var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(map);
+<section class="pemetaan container" id="pemetaan">
+  <div id="map" style="width: 1200px; height: 600px;"></div>
+</section>
 
-    var icon = L.icon({
-        iconUrl: '<?= base_url('assets/icon/rs.png') ?>',
-        iconSize: [30, 60],
-        iconAnchor: [22, 65],
-        popupAnchor: [-3, -55]
-    });
+<section class="about container" id="about">
+  <div class="about-img">
 
-    <?php foreach ($malaria as $data => $value) { ?>
-        L.marker([<?= $value->lat ?>, <?= $value->lng ?>]).addTo(map).bindPopup("Nama Puskesmas : <?= $value->nama_puskesmas ?>"), {
-            icon: icon
-        };
-    <?php } ?>
-</script>
+  </div>
+  <div class="about-text">
 
+  </div>
+</section>
 
-<script>
-    alert('Selamat datang, <?= $user['nama_user'] ?>.');
-</script>
+<div id="myModal_2019" class="modal">
+<div class="modal-content">
+  <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Paket Eresta Studying</h2>
+    </div>
+    <div class="modal-body">
+        <form action="<?= base_url('dashboard/add_customer1'); ?>" method="post">
+        <div class="row">
+            <div class="col-25">
+                <label for="full_name">Nama Lengkap</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="full_name" name="full_name" placeholder="Masukkan Nama Lengkap Anda..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="telp">No. Telp</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="telp" name="telp" placeholder="Masukkan Nomor Telp Anda..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="website_name">Nama Project</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="website_name" name="website_name" placeholder="Masukkan Nama Project Anda..">
+            </div>
+        </div>
+      </from>
+    </div>
+    <div class="modal-footer">
+      <div align="right">
+        <button class="btnx">Pesan Sekarang</button>
+      </div>
+    </div>
+  </div>
+</div>

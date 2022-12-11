@@ -1,100 +1,139 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 *{
-  padding: 0;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  text-decoration: none;
-  list-style: none;
+  padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+  list-style: none;
+  text-decoration: none;
 }
-body{
-  font-family: montserrat;
+
+:root {
+  --main-color: red;
+  --second-color: rgb(116, 9, 9);
+  --text-color: #314862; 
+  --bg-color: #fff;
+
+  --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
 }
-nav{
-  background: #b22222;
-  height: 80px;
+
+img{
   width: 100%;
 }
-label.logo{
-  color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
-  font-weight: bold;
+
+body{
+  color: var(--text-color);
 }
-nav ul{
-  float: right;
-  margin-right: 20px;
+
+section {
+  padding: 4.5rem 0 3rem;
 }
-nav ul li{
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
+
+.container{
+  max-width: 1068px;
+  margin-left: auto;
+  margin-right: auto;
 }
-nav ul li a{
-  color: white;
-  font-size: 15px;
-  padding: 7px 13px;
-  border-radius: 3px;
+
+header{
+  display: block;
+  width: 100%;
+  background: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 35px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
   text-transform: uppercase;
 }
-a.active,a:hover{
-  background: #8b0000;
-  transition: .5s;
+
+.logo .bx {
+  font-size: 24px;
+  color: var(--main-color);
 }
-.checkbtn{
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
+
+.navbar {
+  display: flex;
+}
+
+.navbar a{
+  padding: 8px 17px;
+  color: var(--text-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: var(--main-color);
+}
+
+#menu-icon{
+  font-size: 24px;
   cursor: pointer;
   display: none;
 }
-#check{
+
+#menu{
   display: none;
 }
-@media (max-width: 952px){
-  label.logo{
-    font-size: 30px;
-    padding-left: 50px;
-  }
-  nav ul li a{
-    font-size: 16px;
-  }
+
+.btn{
+  padding: 8px 22px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 5rem;
 }
-@media (max-width: 858px){
-  .checkbtn{
-    display: block;
-  }
-  ul{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: black;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav ul li{
-    display: block;
-  }
-  nav ul li{
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-  nav ul li a{
-    font-size: 20px;
-  }
-  a:hover,a.active{
-    background: none;
-    color: #8b0000
-  }
-  #check:checked ~ ul{
-    left: 0;
-  }
-  section{
-    height: calc(100vh - 80px);
-  }
+
+.btn:hover{
+  background: #3492fd;
+}
+
+.home{
+  margin-top: 5rem;
+  background: url("https://media-infokes.com/wp-content/uploads/2021/07/telemedicine-1024x504.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 440px;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.home-text {
+  padding-left: 35px;
+}
+
+.home-text h1{
+  color: var(--bg-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.pemetaan{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 440px;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
 }
