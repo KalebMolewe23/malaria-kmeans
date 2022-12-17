@@ -19,6 +19,16 @@
   <div id="map" style="width: 1200px; height: 600px;" class="home-text"></div>
 </section>
 
+<section>
+  <div class="container">
+    <div align="center">
+      <a href="<?= base_url('user/zona_merah_2020'); ?>"><button type="submit" class="btn btn-danger">Zona Bahaya</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_kuning_2020'); ?>"><button type="submit" class="btn btn-alert">Zona Waspada</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_hijau_2020'); ?>"><button type="submit" class="btn btn-success">Zona Aman</button></a>
+    </div>
+  </div>
+</section>
+
 <section class="data container" id="data">
   <!-- box 1 -->
   <div class="box">
@@ -320,33 +330,53 @@
         </div>
       </div>
 
-<script>
-    var map = L.map('map').setView([-0.861453, 134.062042], 10);
+      <script>
 
-    var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(map);
+  var map = L.map('map').setView([-0.861453, 134.062042], 10);
 
-    var icon = L.icon({
-          iconUrl: '<?= base_url('assets/icon/rs.png') ?>',
-          iconSize: [30, 60],
-          iconAnchor: [22, 65],
-          popupAnchor: [-3, -55]
-      });
+  var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+          'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1
+  }).addTo(map);
 
-    <?php
-      $puskesmas = $this->db->get('puskesmas')->result();
+  var icon = L.icon({
+        iconUrl: '<?= base_url('assets/icon/rs.png') ?>',
+        iconSize: [30, 60],
+        iconAnchor: [22, 65],
+        popupAnchor: [-3, -55]
+    });
 
-      foreach ($puskesmas as $value) { ?>
-      
-      L.marker([<?= $value->lat ?>, <?= $value->lng ?>]).addTo(map).bindPopup("Nama Puskesmas : <?= $value->nama_puskesmas ?>"), {
-          icon: icon
-      };
+  <?php
+    $this->db->where('tahun', '2020');
+    $this->db->where('c2', 1);
+    $this->db->where('iterasi', $data_malaria);
+    $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+    $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+    $c1 = $this->db->get('centroid_temp')->result();
 
-    <?php } ?>
+    foreach ($c1 as $value_1) {
+  ?>
+
+    L.marker([<?= $value_1->lat ?>, <?= $value_1->lng ?>]).addTo(map).bindPopup("Nama Puskesmas : <?= $value_1->nama_puskesmas ?>"), {
+        icon: icon
+    };
+    $.getJSON("<?= base_url('assets/maps/' . $value_1->geojson) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.5,
+                    color: 'yellow',
+                    fillcolor: 'yellow',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+  <?php } ?>
+
 </script>

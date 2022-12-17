@@ -6,6 +6,7 @@
   <title><?= $title; ?></title>
   <!-- Link To CSS -->
   <link rel="stylesheet" href="<?= base_url('assets/user/css/style.css'); ?>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Box Icons -->
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -48,9 +49,9 @@
   .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     border: 1px solid #888;
-    width: 40%;
+    width: 60%;
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
     animation-name: slideIn;
@@ -61,7 +62,7 @@
   .close {
     color: white;
     float: right;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
   }
 
@@ -72,13 +73,30 @@
     cursor: pointer;
   }
 
+  /* The Close Button */
+  .close2020 {
+    color: white;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .close2020:hover,
+  .close2020:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   .modal-header {
-    padding: 2px 16px;
-    background-color: #7380ec;
+    padding: 10px 14px;
+    background-color: red;
     color: white;
   }
 
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+    padding: 2px 16px;
+  }
 
   .modal-footer {
     padding: 2px 16px;
