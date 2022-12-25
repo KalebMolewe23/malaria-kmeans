@@ -16,7 +16,22 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
+  <?php
+        $data_cms = $this->db->get('background');
+        $bg_name = $data_cms->row('bg_name');
+        $bg_color = $data_cms->row('bg_color');
+        $bg_color_second = $data_cms->row('bg_color_second');
+    ?>
+
 	<style>
+    :root {
+      --main-color: <?= $bg_color ?>;
+      --second-color: rgb(116, 9, 9);
+      --text-color: #314862; 
+      --bg-color: #fff;
+
+      --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+    }
 		html, body {
 			height: 100%;
 			margin: 0;
@@ -30,7 +45,7 @@
     .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     padding-top: 100px; Location of the box
     left: 0;
     top: 0;
@@ -130,7 +145,7 @@
 <body>
 <header>
   <div class="nav container">
-    <a href="<?= base_url('user'); ?>" class="logo"><i class="bx bx-home"></i>MALARIA</a>
+    <a href="<?= base_url('user'); ?>" class="logo"><i class="bx bx-home"></i><?= $bg_name; ?></a>
 
     <input type="checkbox" name="" id="menu">
     <label for="menu" <i class="bx bx-menu" id="menu-icon"></i></label>

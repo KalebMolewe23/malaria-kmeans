@@ -10,15 +10,6 @@
   text-decoration: none;
 }
 
-:root {
-  --main-color: red;
-  --second-color: rgb(116, 9, 9);
-  --text-color: #314862; 
-  --bg-color: #fff;
-
-  --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
-}
-
 img{
   width: 100%;
 }
