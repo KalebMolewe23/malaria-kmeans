@@ -36,6 +36,9 @@
 			height: 100%;
 			margin: 0;
 		}
+    table, th, td {
+      border: 1px solid;
+    }
 		.leaflet-container {
 			height: 400px;
 			width: 600px;
