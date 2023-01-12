@@ -333,7 +333,7 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Proses Perhitungan</a></li>
                     <li><a href="<?= base_url("administrator/kmeans/index"); ?>">Kmeans</a></li>
-                    <li><a href="<?= base_url("administrator/kmeans/iterasi_hasil"); ?>">DBI</a></li>
+                    <!-- <li><a href="<?= base_url("administrator/kmeans/iterasi_hasil"); ?>">DBI</a></li> -->
                     <li><a href="<?= base_url("administrator/proses/index"); ?>">Pengelompokan</a></li>
                 </ul>
             </li>
