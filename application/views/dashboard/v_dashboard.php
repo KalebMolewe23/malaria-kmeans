@@ -11,7 +11,7 @@
           <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_2019">2019</button>&nbsp;&nbsp;
           <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">2020</button>
           <br><br><br>
-          <div id="map" style="width: 600px; height: 400px;"></div><br><br>
+          <div id="map" style="width: 650px; height: 900px;"></div><br><br>
         </div>
       </div>
 

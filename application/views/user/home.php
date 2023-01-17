@@ -106,12 +106,12 @@
           ?>
 
       
-          <br><h5>Zona Aman</h5>
+          <br><h5>Zona Rendah</h5>
           <table>
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama Puskesmas</th>
+                <th>Nama Tinggi</th>
                 <th>Tahun</th>
               </tr>
             </thead>
@@ -128,7 +128,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Waspada</h5>
+          <br><h5>Zona Sedang</h5>
           <table>
             <thead>
               <tr>
@@ -150,7 +150,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Bahaya</h5>
+          <br><h5>Zona Tinggi</h5>
           <table>
             <thead>
               <tr>
@@ -222,7 +222,7 @@
           ?>
 
       
-          <br><h5>Zona Aman</h5>
+          <br><h5>Zona Rendah</h5>
           <table>
             <thead>
               <tr>
@@ -244,7 +244,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Waspada</h5>
+          <br><h5>Zona Sedang</h5>
           <table>
             <thead>
               <tr>
@@ -266,7 +266,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Bahaya</h5>
+          <br><h5>Zona Tinggi</h5>
           <table>
             <thead>
               <tr>

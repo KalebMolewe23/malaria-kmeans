@@ -22,9 +22,9 @@
 <section>
   <div class="container">
     <div align="center">
-      <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Bahaya</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Waspada</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Aman</button></a>
+      <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a>
     </div>
   </div>
 </section>
@@ -116,7 +116,7 @@
           ?>
 
       
-          <br><h5>Zona Aman</h5>
+          <br><h5>Zona Tinggi</h5>
           <table>
             <thead>
               <tr>
@@ -138,7 +138,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Waspada</h5>
+          <br><h5>Zona Sedang</h5>
           <table>
             <thead>
               <tr>
@@ -160,7 +160,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Bahaya</h5>
+          <br><h5>Zona Tinggi</h5>
           <table>
             <thead>
               <tr>
@@ -232,7 +232,7 @@
           ?>
 
       
-          <br><h5>Zona Aman</h5>
+          <br><h5>Zona Rendah</h5>
           <table>
             <thead>
               <tr>
@@ -254,7 +254,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Waspada</h5>
+          <br><h5>Zona Sedang</h5>
           <table>
             <thead>
               <tr>
@@ -276,7 +276,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Bahaya</h5>
+          <br><h5>Zona Rendah</h5>
           <table>
             <thead>
               <tr>

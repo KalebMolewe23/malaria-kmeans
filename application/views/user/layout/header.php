@@ -43,7 +43,7 @@
 			height: 400px;
 			width: 600px;
 			max-width: 100%;
-			max-height: 100%;
+			max-height: 150%;
 		}
     .modal {
     display: none; /* Hidden by default */
