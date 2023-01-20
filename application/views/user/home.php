@@ -173,7 +173,7 @@
           </table>
         </div>
         <div class="modal-footer" align="right">
-          <a href="<?= base_url('user/zona_merah_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+          <a href="<?= base_url('user/zona_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
         </div>
       </div>
 
@@ -289,7 +289,7 @@
           </table>
         </div>
         <div class="modal-footer" align="right">
-          <a href="<?= base_url('user/zona_merah_2020') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+          <a href="<?= base_url('user/zona_2020') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
         </div>
       </div>
 

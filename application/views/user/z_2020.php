@@ -22,9 +22,9 @@
 <section>
   <div class="container">
     <div align="center">
-      <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a>
+      <!-- <a href="<?= base_url('user/zona_merah_2020'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_kuning_2020'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
+      <a href="<?= base_url('user/zona_hijau_2020'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
     </div>
   </div>
 </section>
@@ -183,7 +183,7 @@
           </table>
         </div>
         <div class="modal-footer" align="right">
-          <a href="<?= base_url('user/zona_merah_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+          <a href="<?= base_url('user/zona_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
         </div>
       </div>
 
@@ -299,7 +299,7 @@
           </table>
         </div>
         <div class="modal-footer" align="right">
-          <a href="<?= base_url('user/zona_merah_2020') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+          <a href="<?= base_url('user/zona_2020') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
         </div>
       </div>
 
@@ -320,33 +320,246 @@
   }).addTo(map);
 
   var icon = L.icon({
-        iconUrl: '<?= base_url('assets/icon/rs.png') ?>',
-        iconSize: [30, 60],
-        iconAnchor: [22, 65],
-        popupAnchor: [-3, -55]
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+  var iconRed = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+  var iconGreen = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
     });
 
   <?php
-    $this->db->where('tahun', '2019');
+    $this->db->where('tahun', '2020');
     $this->db->where('c1', 1);
     $this->db->where('iterasi', $data_malaria);
     $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
     $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
     $c1 = $this->db->get('centroid_temp')->result();
+    
+    $this->db->where('tahun', '2020');
+    $this->db->where('c2', 1);
+    $this->db->where('iterasi', $data_malaria);
+    $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+    $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+    $c2 = $this->db->get('centroid_temp')->result();
+    
+    $this->db->where('tahun', '2020');
+    $this->db->where('c3', 1);
+    $this->db->where('iterasi', $data_malaria);
+    $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+    $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+    $c3 = $this->db->get('centroid_temp')->result();
 
+    // geojson
+
+    $this->db->where('iddistrick', 1);
+    $barat = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 2);
+    $masni = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 3);
+    $prafi = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 4);
+    $selatan = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 5);
+    $sidey = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 6);
+    $tanah = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 7);
+    $timur = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 8);
+    $utara = $this->db->get('district')->row('name');
+
+    $this->db->where('iddistrick', 9);
+    $warmare = $this->db->get('district')->row('name');
+    
+
+    // zona tinggi
     foreach ($c1 as $value_1) {
   ?>
 
-    L.marker([<?= $value_1->lat ?>, <?= $value_1->lng ?>]).addTo(map).bindPopup("Nama Puskesmas : <?= $value_1->nama_puskesmas ?>"), {
-        icon: icon
-    };
-    $.getJSON("<?= base_url('assets/maps/' . $value_1->geojson) ?>", function(data) {
+    L.marker([<?= $value_1->lat ?>, <?= $value_1->lng ?>], {icon: iconRed }).addTo(map).bindPopup("Nama Puskesmas : <?= $value_1->nama_puskesmas ?>")
+
+    // $.getJSON("<?= base_url('assets/maps/' . $value_1->geojson) ?>", function(data) {
+    //     geoLayer = L.geoJson(data, {
+    //         style: function(feater) {
+    //             return {
+    //                 opacity: 0.5,
+    //                 color: 'red',
+    //                 fillcolor: 'red',
+    //             }
+    //         },
+    //     }).addTo(map);
+
+    // });
+
+  <?php } ?>
+
+  <?php
+    // zona Sedang
+    foreach ($c2 as $value_2) {
+  ?>
+
+    L.marker([<?= $value_2->lat ?>, <?= $value_2->lng ?>], {icon: icon
+    }).addTo(map).bindPopup("Nama Puskesmas : <?= $value_2->nama_puskesmas ?>")
+
+    // $.getJSON("<?= base_url('assets/maps/' . $value_2->geojson) ?>", function(data) {
+    //     geoLayer = L.geoJson(data, {
+    //         style: function(feater) {
+    //             return {
+    //                 opacity: 1,
+    //                 color: 'yellow',
+    //                 fillcolor: 'yellow',
+    //             }
+    //         },
+    //     }).addTo(map);
+
+    // });
+
+  <?php } ?>
+
+  <?php
+    // zona Rendah
+    foreach ($c3 as $value_3) {
+  ?>
+
+    L.marker([<?= $value_3->lat ?>, <?= $value_3->lng ?>], {icon: iconGreen}).addTo(map).bindPopup("Nama Puskesmas : <?= $value_3->nama_puskesmas ?>")
+
+    $.getJSON("<?= base_url('assets/maps/' . $barat) ?>", function(data) {
         geoLayer = L.geoJson(data, {
             style: function(feater) {
                 return {
-                    opacity: 0.5,
+                    opacity: 1,
+                    color: 'green',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $masni) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'yellow',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $prafi) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
                     color: 'red',
-                    fillcolor: 'red',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $selatan) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'blue',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $sidey) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'gray',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $tanah) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'brown',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $timur) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'white',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $utara) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'black',
+                    fillcolor: 'black',
+                }
+            },
+        }).addTo(map);
+
+    });
+
+    $.getJSON("<?= base_url('assets/maps/' . $warmare) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.1,
+                    color: 'pink',
+                    fillcolor: 'black',
                 }
             },
         }).addTo(map);
