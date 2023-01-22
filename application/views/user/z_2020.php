@@ -23,9 +23,9 @@
 <div class="container">
     <div align="center">
       <h3>Keterangan :</h3><br>
-      <p><img src="<?= base_url('assets/img/marker-icon-2x-red.png') ?>" width="2%" alt=""><b>Zona Tinggi</b>
-      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-yellow.png') ?>" width="2%" alt=""><b>Zona Sedang</b>
-      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-green.png') ?>" width="2%" alt=""><b>Zona Rendah</b></p>
+      <p><img src="<?= base_url('assets/img/marker-icon-2x-red.png') ?>" width="2%" alt=""><b>C1</b>
+      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-yellow.png') ?>" width="2%" alt=""><b>C2</b>
+      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-green.png') ?>" width="2%" alt=""><b>C3</b></p>
       <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
       <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
       <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
