@@ -10,9 +10,9 @@
   text-decoration: none;
 }
 
-img{
+/* img{
   width: 100%;
-}
+} */
 
 body{
   color: var(--text-color);

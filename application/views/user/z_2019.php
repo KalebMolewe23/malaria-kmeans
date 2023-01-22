@@ -22,10 +22,25 @@
 <section>
   <div class="container">
     <div align="center">
+      <h3>Keterangan :</h3><br>
+      <p><img src="<?= base_url('assets/img/marker-icon-2x-red.png') ?>" width="2%" alt=""><b>Zona Tinggi</b>
+      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-yellow.png') ?>" width="2%" alt=""><b>Zona Sedang</b>
+      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-green.png') ?>" width="2%" alt=""><b>Zona Rendah</b></p>
       <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
       <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
       <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
-    </div>
+    </div><br>
+    <p>
+    <img src="<?= base_url('assets/image/barat.png') ?>" width="3%" alt=""><b>Manokwari Timur</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/masni.png') ?>" width="3%" alt=""><b>Manokwari Barat</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/prafi.png') ?>" width="3%" alt=""><b>Manokwari Selatan</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/selatan.png') ?>" width="3%" alt=""><b>Manokwari Utara</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/sidey.png') ?>" width="3%" alt=""><b>Masni</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/tanah.png') ?>" width="3%" alt=""><b>Prafi</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/timur.png') ?>" width="3%" alt=""><b>Sidey</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/utara.png') ?>" width="3%" alt=""><b>Tanah Rubuh</b>&nbsp;&nbsp;
+    <img src="<?= base_url('assets/image/warmare.png') ?>" width="3%" alt=""><b>Warmare</b>&nbsp;&nbsp;
+    </p>
   </div>
 </section>
 
