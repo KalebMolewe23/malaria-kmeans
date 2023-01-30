@@ -32,25 +32,16 @@
                                 <center>Positif / Penduduk</center>
                             </th>
                             <th>
-                                <center>Usia 0-11 Bulan</center>
+                                <center>Usia 0-4 Bulan</center>
                             </th>
                             <th>
-                                <center>Usia 1-4 Tahun</center>
-                            </th>
-                            <th>
-                                <center>Usia 5-9 Tahun</center>
-                            </th>
-                            <th>
-                                <center>Usia 10-14 Tahun</center>
+                                <center>Usia 5-14 Tahun</center>
                             </th>
                             <th>
                                 <center>Usia 15-64 Tahun</center>
                             </th>
                             <th>
                                 <center> > 64 Tahun</center>
-                            </th>
-                            <th>
-                                <center> Ibu Hamil</center>
                             </th>
                             <th>
                                 <center> PF</center>
@@ -63,9 +54,6 @@
                             </th>
                             <th>
                                 <center> PM</center>
-                            </th>
-                            <th>
-                                <center> PK</center>
                             </th>
                             <th>
                                 <center>Action</center>
@@ -84,17 +72,13 @@
                                 <td align="center"><?= $inv->tahun ?></td>
                                 <td align="center"><?= $inv->positif ?></td>
                                 <td align="center"><?= $inv->usia_0 ?></td>
-                                <td align="center"><?= $inv->usia_1 ?></td>
                                 <td align="center"><?= $inv->usia_5 ?></td>
-                                <td align="center"><?= $inv->usia_10 ?></td>
                                 <td align="center"><?= $inv->usia_15 ?></td>
                                 <td align="center"><?= $inv->usia_64 ?></td>
-                                <td align="center"><?= $inv->ibu_hamil ?></td>
                                 <td align="center"><?= $inv->pf ?></td>
                                 <td align="center"><?= $inv->pv ?></td>
                                 <td align="center"><?= $inv->po ?></td>
                                 <td align="center"><?= $inv->pm ?></td>  
-                                <td align="center"><?= $inv->pk ?></td>
                                 <td align="center">
                                 <?= anchor('administrator/data/edit_malaria/' . $inv->iddata_malaria, '<div class="btn btn-primary btn-sm"><i class="bx bx-edit" ></i> Ubah</div>') ?>
                                 </td>  

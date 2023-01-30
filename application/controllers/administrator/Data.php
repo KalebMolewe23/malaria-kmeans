@@ -52,17 +52,13 @@ class Data extends CI_Controller
         $this->form_validation->set_rules('tahun', 'tahun', 'required|trims');
         $this->form_validation->set_rules('positif', 'positif', 'required|trims');
         $this->form_validation->set_rules('usia_0', 'usia_0', 'required|trims');
-        $this->form_validation->set_rules('usia_1', 'usia_1', 'required|trims');
         $this->form_validation->set_rules('usia_5', 'usia_5', 'required|trims');
-        $this->form_validation->set_rules('usia_10', 'usia_10', 'required|trims');
         $this->form_validation->set_rules('usia_15', 'usia_15', 'required|trims');
         $this->form_validation->set_rules('usia_64', 'usia_64', 'required|trims');
-        $this->form_validation->set_rules('ibu_hamil', 'ibu_hamil', 'required|trims');
         $this->form_validation->set_rules('pf', 'pf', 'required|trims');
         $this->form_validation->set_rules('pv', 'pv', 'required|trims');
         $this->form_validation->set_rules('po', 'po', 'required|trims');
         $this->form_validation->set_rules('pm', 'pm', 'required|trims');
-        $this->form_validation->set_rules('pk', 'pk', 'required|trims');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Tambah Data Malaria';
             $wilayah['lowokwaru'] = $this->db->get('data_malaria');
@@ -75,17 +71,13 @@ class Data extends CI_Controller
                 'tahun'         => $this->input->post('tahun'),
                 'positif'       => $this->input->post('positif'),
                 'usia_0'        => $this->input->post('usia_0'),
-                'usia_1'        => $this->input->post('usia_1'),
                 'usia_5'        => $this->input->post('usia_5'),
-                'usia_10'       => $this->input->post('usia_10'),
                 'usia_15'       => $this->input->post('usia_15'),
                 'usia_64'       => $this->input->post('usia_64'),
-                'ibu_hamil'     => $this->input->post('ibu_hamil'),
                 'pf'            => $this->input->post('pf'),
                 'pv'            => $this->input->post('pv'),
                 'po'            => $this->input->post('po'),
                 'pm'            => $this->input->post('pm'),
-                'pk'            => $this->input->post('pk'),
             ];
 
             $this->db->insert('data_malaria', $datavaksinasi);
@@ -139,17 +131,13 @@ class Data extends CI_Controller
         $tahun = $this->input->post('tahun');
         $positif = $this->input->post('positif');
         $usia_0 = $this->input->post('usia_0');
-        $usia_1 = $this->input->post('usia_1');
         $usia_5 = $this->input->post('usia_5');
-        $usia_10 = $this->input->post('usia_10');
         $usia_15 = $this->input->post('usia_15');
         $usia_64 = $this->input->post('usia_64');
-        $ibu_hamil = $this->input->post('ibu_hamil');
         $pf = $this->input->post('pf');
         $pv = $this->input->post('pv');
         $po = $this->input->post('po');
         $pm = $this->input->post('pm');
-        $pk = $this->input->post('pk');
 
         $data = array(
             'iddata_malaria' => $id,
@@ -157,17 +145,13 @@ class Data extends CI_Controller
             'tahun' => $tahun,
             'positif' => $positif,
             'usia_0' => $usia_0,
-            'usia_1' => $usia_1,
             'usia_5' => $usia_5,
-            'usia_10' => $usia_10,
             'usia_15' => $usia_15,
             'usia_64' => $usia_64,
-            'ibu_hamil' => $ibu_hamil,
             'pf' => $pf,
             'pv' => $pv,
             'po' => $po,
             'pm' => $pm,
-            'pk' => $pk,
         );
 
         $where = array(

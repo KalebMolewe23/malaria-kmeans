@@ -17,6 +17,19 @@ class User extends CI_Controller
 
   }
 
+  public function zona_2018(){
+
+    $this->db->select('max(iterasi) as iterasi');
+    $data_centroid['data_malaria'] = $this->db->get('centroid_temp')->row('iterasi');
+
+    $data['title'] = 'Halaman Utama';
+
+    $this->load->view('user/layout/header', $data);
+    $this->load->view('user/z_2018', $data_centroid);
+    $this->load->view('user/layout/footer');
+
+  }
+
   public function zona_2019(){
 
     $this->db->select('max(iterasi) as iterasi');

@@ -34,6 +34,7 @@
                   <label>Tahun</label>
                   <select type="text" class="form-control selectric" name="tahun" value="<?= $w->tahun ?>" required>
                     <option value=""> - Silahkan Pilih - </option>
+                    <option value="2019">2018</option>
                     <option value="2019">2019</option>
                     <option value="2020">2020</option>
                   </select>
@@ -47,27 +48,15 @@
               </div>
 
               <div class="form_group">
-                  <label>Usia 0 - 1 Tahun</label>
+                  <label>Usia 0 - 4 Tahun</label>
                   <input type="text" class="form-control selectric" name="usia_0" value="<?= $w->usia_0 ?>" required>
                   <?= form_error('usia_0', '<small class="text-danger">', '</small>'); ?>
               </div>
 
               <div class="form_group">
-                  <label>Usia 1 - 5 Tahun</label>
-                  <input type="text" class="form-control selectric" name="usia_1" value="<?= $w->usia_1 ?>" required>
-                  <?= form_error('usia_1', '<small class="text-danger">', '</small>'); ?>
-              </div>
-
-              <div class="form_group">
-                  <label>Usia 5 - 10 Tahun</label>
+                  <label>Usia 5 - 14 Tahun</label>
                   <input type="text" class="form-control selectric" name="usia_5" value="<?= $w->usia_5 ?>" required>
                   <?= form_error('usia_5', '<small class="text-danger">', '</small>'); ?>
-              </div>
-
-              <div class="form_group">
-                  <label>Usia 10 - 15 Tahun</label>
-                  <input type="text" class="form-control selectric" name="usia_10" value="<?= $w->usia_10 ?>" required>
-                  <?= form_error('usia_10', '<small class="text-danger">', '</small>'); ?>
               </div>
 
               <div class="form_group">
@@ -77,15 +66,9 @@
               </div>
 
               <div class="form_group">
-                  <label>Usia Diatas 64 Tahun</label>
+                  <label>Usia > 64 Tahun</label>
                   <input type="text" class="form-control selectric" name="usia_64" value="<?= $w->usia_64 ?>" required>
                   <?= form_error('usia_64', '<small class="text-danger">', '</small>'); ?>
-              </div>
-
-              <div class="form_group">
-                  <label>Ibu Hamil</label>
-                  <input type="text" class="form-control selectric" name="ibu_hamil" value="<?= $w->ibu_hamil ?>" required>
-                  <?= form_error('ibu_hamil', '<small class="text-danger">', '</small>'); ?>
               </div>
 
               <div class="form_group">
@@ -111,12 +94,6 @@
                   <input type="text" class="form-control selectric" name="pm" value="<?= $w->pm ?>" required>
                   <?= form_error('pm', '<small class="text-danger">', '</small>'); ?>
               </div>
-
-              <div class="form_group">
-                  <label>PK</label>
-                  <input type="text" class="form-control selectric" name="pk" value="<?= $w->pk ?>" required>
-                  <?= form_error('pk', '<small class="text-danger">', '</small>'); ?>
-              </div><br>
 
               <div class="form_group">
                   <button type="submit" class="btn btn-success"><i class='bx bxs-save'></i> Simpan</button>

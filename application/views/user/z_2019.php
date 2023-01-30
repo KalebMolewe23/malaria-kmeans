@@ -9,6 +9,7 @@
   <div class="container">
     <div align="center">
       <h3>Pilih Tahun : </h3>
+      <button type="submit" class="btn btn-primary" id="Btn2018">2018</button>&nbsp;&nbsp;
       <button type="submit" class="btn btn-primary" id="myBtn">2019</button>&nbsp;&nbsp;
       <button type="submit" class="btn btn-primary" id="Btn2020">2020</button>
     </div>
@@ -21,26 +22,72 @@
 
 <section>
   <div class="container">
-    <div align="center">
-      <h3>Keterangan :</h3><br>
-      <p><img src="<?= base_url('assets/img/marker-icon-2x-red.png') ?>" width="2%" alt=""><b>C1</b>
-      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-yellow.png') ?>" width="2%" alt=""><b>C2</b>
-      &nbsp;&nbsp;<img src="<?= base_url('assets/img/marker-icon-2x-green.png') ?>" width="2%" alt=""><b>C3</b></p>
-      <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;
-      <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
-    </div><br>
-    <p>
-    <img src="<?= base_url('assets/image/barat.png') ?>" width="3%" alt=""><b>Manokwari Timur</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/masni.png') ?>" width="3%" alt=""><b>Manokwari Barat</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/prafi.png') ?>" width="3%" alt=""><b>Manokwari Selatan</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/selatan.png') ?>" width="3%" alt=""><b>Manokwari Utara</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/sidey.png') ?>" width="3%" alt=""><b>Masni</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/tanah.png') ?>" width="3%" alt=""><b>Prafi</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/timur.png') ?>" width="3%" alt=""><b>Sidey</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/utara.png') ?>" width="3%" alt=""><b>Tanah Rubuh</b>&nbsp;&nbsp;
-    <img src="<?= base_url('assets/image/warmare.png') ?>" width="3%" alt=""><b>Warmare</b>&nbsp;&nbsp;
-    </p>
+    <div class="card">
+      <div align="center">
+
+      <?php
+
+      $this->db->where('tahun', '2019');
+      $this->db->where('c1', 1);
+      $this->db->where('iterasi', $data_malaria);
+      $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+      $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+      $iterasi_c1 = $this->db->get('centroid_temp');
+
+      $this->db->where('tahun', '2019');
+      $this->db->where('c2', 1);
+      $this->db->where('iterasi', $data_malaria);
+      $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+      $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+      $iterasi_c2 = $this->db->get('centroid_temp');
+
+      $this->db->where('tahun', '2019');
+      $this->db->where('c3', 1);
+      $this->db->where('iterasi', $data_malaria);
+      $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+      $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+      $iterasi_c3 = $this->db->get('centroid_temp');
+
+      // echo "<pre>";
+      // var_dump($c1);
+      // die();
+
+      ?>
+
+        <h3>Keterangan :</h3><br>
+        <img src="<?= base_url('assets/image/masni.png') ?>" width="3%" alt=""><b>C1</b>&nbsp;&nbsp;
+        <img src="<?= base_url('assets/image/selatan.png') ?>" width="3%" alt=""><b>C2</b>&nbsp;&nbsp;
+        <img src="<?= base_url('assets/image/prafi.png') ?>" width="3%" alt=""><b>C3</b>&nbsp;&nbsp;
+        <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
+        <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;s
+        <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
+      </div>
+      <br>
+      <p>
+      &nbsp;Cluster 1 : 
+      <?php
+        foreach($iterasi_c1->result() as $data_c1){
+          echo $data_c1->nama_puskesmas.' | ';
+        }
+      ?>
+      </p><br>
+      <p>
+      &nbsp;Cluster 2 :
+      <?php
+        foreach($iterasi_c2->result() as $data_c2){
+          echo $data_c2->nama_puskesmas.' | ';
+        }
+      ?>
+      </p><br>
+      <p>
+      &nbsp;Cluster 3 :
+      <?php
+        foreach($iterasi_c3->result() as $data_c3){
+          echo $data_c3->nama_puskesmas.' | ';
+        }
+      ?>
+      </p><br>
+    </div>
   </div>
 </section>
 
@@ -89,6 +136,122 @@
   </div>
 </section>
 
+<!-- Modal 2018-->
+<div id="myModal_2018" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close2018" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Data Informasi 2018</h4>
+        </div>
+        <div class="modal-body" align="center">
+          
+          <?php
+
+            $this->db->where('tahun', '2018');
+            $this->db->where('c1', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c1_1 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2018');
+            $this->db->where('c2', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c2_1 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2018');
+            $this->db->where('c3', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c3_1 = $this->db->get('centroid_temp');
+
+            // echo "<pre>";
+            // var_dump($c1);
+            // die();
+            
+          ?>
+
+      
+          <br><h5>Zona Rendah</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Tinggi</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c1_1->result() as $v_c1_1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c1_1->nama_puskesmas; ?></th>
+                  <th><?= $v_c1_1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <br><h5>Zona Sedang</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c2_1->result() as $v_c2_1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c2_1->nama_puskesmas; ?></th>
+                  <th><?= $v_c2_1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <br><h5>Zona Tinggi</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c3_1->result() as $v_c3_1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c3_1->nama_puskesmas; ?></th>
+                  <th><?= $v_c3_1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer" align="right">
+          <a href="<?= base_url('user/zona_2018') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 <!-- Modal 2019-->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -108,132 +271,16 @@
             $this->db->where('iterasi', $data_malaria);
             $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
             $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
-            $c1 = $this->db->get('centroid_temp');
-            
-            $this->db->where('tahun', '2019');
-            $this->db->where('c2', 1);
-            $this->db->where('iterasi', $data_malaria);
-            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
-            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
-            $c2 = $this->db->get('centroid_temp');
-            
-            $this->db->where('tahun', '2019');
-            $this->db->where('c3', 1);
-            $this->db->where('iterasi', $data_malaria);
-            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
-            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
-            $c3 = $this->db->get('centroid_temp');
-
-            // echo "<pre>";
-            // var_dump($c1);
-            // die();
-            
-          ?>
-
-      
-          <br><h5>Zona Tinggi</h5>
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Puskesmas</th>
-                <th>Tahun</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php 
-              $no = 1;
-              foreach($c1->result() as $v_c1){ ?>
-              <tr>
-                  <th><?= $no++ ?></th>
-                  <th><?= $v_c1->nama_puskesmas; ?></th>
-                  <th><?= $v_c1->tahun ?></th>
-              </tr>
-              <?php }?>
-            </tbody>
-          </table>
-          
-          <br><h5>Zona Sedang</h5>
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Puskesmas</th>
-                <th>Tahun</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php 
-              $no = 1;
-              foreach($c2->result() as $v_c1){ ?>
-              <tr>
-                  <th><?= $no++ ?></th>
-                  <th><?= $v_c1->nama_puskesmas; ?></th>
-                  <th><?= $v_c1->tahun ?></th>
-              </tr>
-              <?php }?>
-            </tbody>
-          </table>
-          
-          <br><h5>Zona Tinggi</h5>
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Puskesmas</th>
-                <th>Tahun</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php 
-              $no = 1;
-              foreach($c3->result() as $v_c1){ ?>
-              <tr>
-                  <th><?= $no++ ?></th>
-                  <th><?= $v_c1->nama_puskesmas; ?></th>
-                  <th><?= $v_c1->tahun ?></th>
-              </tr>
-              <?php }?>
-            </tbody>
-          </table>
-        </div>
-        <div class="modal-footer" align="right">
-          <a href="<?= base_url('user/zona_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-      <!-- Modal 2020-->
-      <div id="myModal_2020" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-          <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close2020" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Data Informasi 2020</h4>
-        </div>
-        <div class="modal-body" align="center">
-          
-          <?php
-
-            $this->db->where('tahun', '2020');
-            $this->db->where('c1', 1);
-            $this->db->where('iterasi', $data_malaria);
-            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
-            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
             $c1_2 = $this->db->get('centroid_temp');
             
-            $this->db->where('tahun', '2020');
+            $this->db->where('tahun', '2019');
             $this->db->where('c2', 1);
             $this->db->where('iterasi', $data_malaria);
             $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
             $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
             $c2_2 = $this->db->get('centroid_temp');
             
-            $this->db->where('tahun', '2020');
+            $this->db->where('tahun', '2019');
             $this->db->where('c3', 1);
             $this->db->where('iterasi', $data_malaria);
             $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
@@ -247,7 +294,7 @@
           ?>
 
       
-          <br><h5>Zona Rendah</h5>
+          <br><h5>Zona Tinggi</h5>
           <table>
             <thead>
               <tr>
@@ -281,11 +328,127 @@
             <tbody>
               <?php 
               $no = 1;
-              foreach($c2_2->result() as $v_c1_2){ ?>
+              foreach($c2_2->result() as $v_c2_2){ ?>
               <tr>
                   <th><?= $no++ ?></th>
-                  <th><?= $v_c1_2->nama_puskesmas; ?></th>
-                  <th><?= $v_c1_2->tahun ?></th>
+                  <th><?= $v_c2_2->nama_puskesmas; ?></th>
+                  <th><?= $v_c2_2->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <br><h5>Zona Tinggi</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c3_2->result() as $v_c3_2){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c3_2->nama_puskesmas; ?></th>
+                  <th><?= $v_c3_2->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer" align="right">
+          <a href="<?= base_url('user/zona_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+      <!-- Modal 2020-->
+      <div id="myModal_2020" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close2020" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Data Informasi 2020</h4>
+        </div>
+        <div class="modal-body" align="center">
+          
+          <?php
+
+            $this->db->where('tahun', '2020');
+            $this->db->where('c1', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c1_3 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2020');
+            $this->db->where('c2', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c2_3 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2020');
+            $this->db->where('c3', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c3_3 = $this->db->get('centroid_temp');
+
+            // echo "<pre>";
+            // var_dump($c1);
+            // die();
+            
+          ?>
+
+      
+          <br><h5>Zona Rendah</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c1_3->result() as $v_c1_3){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c1_3->nama_puskesmas; ?></th>
+                  <th><?= $v_c1_3->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <br><h5>Zona Sedang</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c2_3->result() as $v_c2_3){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c2_3->nama_puskesmas; ?></th>
+                  <th><?= $v_c2_3->tahun ?></th>
               </tr>
               <?php }?>
             </tbody>
@@ -303,11 +466,11 @@
             <tbody>
               <?php 
               $no = 1;
-              foreach($c3_2->result() as $v_c1_2){ ?>
+              foreach($c3_3->result() as $v_c3_3){ ?>
               <tr>
                   <th><?= $no++ ?></th>
-                  <th><?= $v_c1_2->nama_puskesmas; ?></th>
-                  <th><?= $v_c1_2->tahun ?></th>
+                  <th><?= $v_c3_3->nama_puskesmas; ?></th>
+                  <th><?= $v_c3_3->tahun ?></th>
               </tr>
               <?php }?>
             </tbody>
@@ -432,6 +595,19 @@
 
     // });
 
+    $.getJSON("<?= base_url('assets/maps/' . $value_1->geojson) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.5,
+                    color: 'red',
+                    fillcolor: 'red',
+                }
+            },
+        }).addTo(map);
+
+    });
+
   <?php } ?>
 
   <?php
@@ -455,6 +631,19 @@
 
     // });
 
+    $.getJSON("<?= base_url('assets/maps/' . $value_2->geojson) ?>", function(data) {
+        geoLayer = L.geoJson(data, {
+            style: function(feater) {
+                return {
+                    opacity: 0.5,
+                    color: 'yellow',
+                    fillcolor: 'yellow',
+                }
+            },
+        }).addTo(map);
+
+    });
+
   <?php } ?>
 
   <?php
@@ -464,117 +653,13 @@
 
     L.marker([<?= $value_3->lat ?>, <?= $value_3->lng ?>], {icon: iconGreen}).addTo(map).bindPopup("Nama Puskesmas : <?= $value_3->nama_puskesmas ?>")
 
-    $.getJSON("<?= base_url('assets/maps/' . $barat) ?>", function(data) {
+    $.getJSON("<?= base_url('assets/maps/' . $value_3->geojson) ?>", function(data) {
         geoLayer = L.geoJson(data, {
             style: function(feater) {
                 return {
-                    opacity: 1,
-                    color: 'green',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $masni) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'yellow',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $prafi) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'red',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $selatan) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'blue',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $sidey) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'gray',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $tanah) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'brown',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $timur) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'white',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $utara) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'black',
-                    fillcolor: 'black',
-                }
-            },
-        }).addTo(map);
-
-    });
-
-    $.getJSON("<?= base_url('assets/maps/' . $warmare) ?>", function(data) {
-        geoLayer = L.geoJson(data, {
-            style: function(feater) {
-                return {
-                    opacity: 0.1,
-                    color: 'pink',
-                    fillcolor: 'black',
+                    opacity: 0.5,
+                    color: '#00ff00',
+                    fillcolor: '#00ff00',
                 }
             },
         }).addTo(map);

@@ -8,6 +8,7 @@
       <div class="container">
         <div align="center">
           <h3>Pilih Tahun : </h3>
+          <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_2018">2018</button>&nbsp;&nbsp;
           <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal_2019">2019</button>&nbsp;&nbsp;
           <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">2020</button>
           <br><br><br>
@@ -15,8 +16,8 @@
         </div>
       </div>
 
-      <!-- Modal 2019-->
-      <div id="myModal" class="modal fade" role="dialog">
+      <!-- Modal 2018-->
+      <div id="myModal_2018" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
           <!-- Modal content-->
@@ -237,6 +238,120 @@
             </div>
             <div class="modal-footer">
               <a href="<?= base_url('administrator/dashboard/zona_merah_2019') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Modal 2020-->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Data Informasi 2020</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <?php
+
+            $this->db->where('tahun', '2020');
+            $this->db->where('c1', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c1 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2020');
+            $this->db->where('c2', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c2 = $this->db->get('centroid_temp');
+            
+            $this->db->where('tahun', '2020');
+            $this->db->where('c3', 1);
+            $this->db->where('iterasi', $data_malaria);
+            $this->db->join('data_malaria', 'data_malaria.iddata_malaria = centroid_temp.iddata_malaria');
+            $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+            $c3 = $this->db->get('centroid_temp');
+
+            // echo "<pre>";
+            // var_dump($c1);
+            // die();
+            
+          ?>
+
+          <h5>Zona Aman</h5><br>
+          <table class="table table-bordered table_hover table-striped">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c1->result() as $v_c1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c1->nama_puskesmas; ?></th>
+                  <th><?= $v_c1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <h5>Zona Waspada</h5><br>
+          <table class="table table-bordered table_hover table-striped">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c2->result() as $v_c1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c1->nama_puskesmas; ?></th>
+                  <th><?= $v_c1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          
+          <h5>Zona Bahaya</h5><br>
+          <table class="table table-bordered table_hover table-striped">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Puskesmas</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $no = 1;
+              foreach($c3->result() as $v_c1){ ?>
+              <tr>
+                  <th><?= $no++ ?></th>
+                  <th><?= $v_c1->nama_puskesmas; ?></th>
+                  <th><?= $v_c1->tahun ?></th>
+              </tr>
+              <?php }?>
+            </tbody>
+          </table>
+            </div>
+            <div class="modal-footer">
+              <a href="<?= base_url('administrator/dashboard/zona_merah_2020') ?>"><button type="submit" class="btn btn-primary">Lanjut</button></a>
             </div>
           </div>
 

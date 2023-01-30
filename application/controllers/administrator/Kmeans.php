@@ -16,8 +16,8 @@ class Kmeans extends CI_Controller {
 
     public function iterasi_lanjut()
     {
-        $this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
-        $data['malaria'] = $this->db->get('data_malaria');
+			$this->db->join('puskesmas', 'puskesmas.id_puskesmas = data_malaria.id_puskesmas');
+			$data['malaria'] = $this->db->get('data_malaria');
 		$id = "";
 		$id = $this->db->query('select max(idhasil_centroid) as m from hasil_centroid');
 		foreach($id->result() as $i)
@@ -26,6 +26,7 @@ class Kmeans extends CI_Controller {
 		}
 		$this->db->where('idhasil_centroid', $id);
 		$data['centroid'] = $this->db->get('hasil_centroid');
+		
 		$data['id'] = $id+1;
 		
 		$it = "";
@@ -51,35 +52,39 @@ class Kmeans extends CI_Controller {
 		}
 		
 		$this->db->where('iterasi', $it);
-		$it_sesesudah = $this->db->get('centroid_temp');
-		$c1_sesesudah = array();
-		$c2_sesesudah = array();
-		$c3_sesesudah = array();
+		$it_sesudah = $this->db->get('centroid_temp');
+		$c1_sesudah = array();
+		$c2_sesudah = array();
+		$c3_sesudah = array();
 		$no=0;
-		foreach($it_sesesudah->result() as $it_next)
+		foreach($it_sesudah->result() as $it_next)
 		{
-			$c1_sesesudah[$no] = $it_next->c1;
-			$c2_sesesudah[$no] = $it_next->c2;
-			$c3_sesesudah[$no] = $it_next->c3;
+			$c1_sesudah[$no] = $it_next->c1;
+			$c2_sesudah[$no] = $it_next->c2;
+			$c3_sesudah[$no] = $it_next->c3;
 			$no++;
 		}
+
+		// echo "<pre>";
+		// var_dump($c2_sebelum);
+		// die();
 		
-		if($c1_sebelum==$c1_sesesudah || $c2_sebelum==$c2_sesesudah || $c3_sebelum==$c3_sesesudah)
-		{
-			?>
+			if($c1_sebelum==$c1_sesudah && $c2_sebelum==$c2_sesudah && $c3_sebelum==$c3_sesudah)
+			{
+				?>
 				<script>
 					alert("Proses iterasi berakhir pada tahap ke-<?php echo $it; ?>");
 				</script>
 			<?php
 				echo "<meta http-equiv='refresh' content='0; url=".base_url()."administrator/proses/'>";
-		}
-		else
-		{
-			$datas['title'] = 'Iterasi Lanjut';
+			}
+			else
+			{
+				$datas['title'] = 'Iterasi Lanjut';
 
 				$this->load->view('layout/header', $datas);
 				$this->load->view('kmeans/iterasi_lanjut', $data);
-				$this->load->view('layout/footer');
+				$this->load->view('layout/footer');		
 			}
     }
 

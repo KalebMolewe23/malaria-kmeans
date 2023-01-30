@@ -36,6 +36,16 @@
 			height: 100%;
 			margin: 0;
 		}
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
     table, th, td {
       border: 1px solid;
     }
@@ -101,6 +111,20 @@
 
   .close2020:hover,
   .close2020:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .close2018 {
+    color: white;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .close2018:hover,
+  .close2018:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
