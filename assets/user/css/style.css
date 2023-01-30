@@ -97,28 +97,6 @@ header{
   background: #3492fd;
 }
 
-.home{
-  margin-top: 5rem;
-  background: url("https://media-infokes.com/wp-content/uploads/2021/07/telemedicine-1024x504.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 440px;
-  border-radius: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.home-text {
-  padding-left: 35px;
-}
-
-.home-text h1{
-  color: var(--bg-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 .pemetaan{
   background-repeat: no-repeat;
   background-size: cover;

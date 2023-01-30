@@ -36,6 +36,28 @@
 			height: 100%;
 			margin: 0;
 		}
+
+    .home{
+      margin-top: 5rem;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/1/16/RSUD_MANOKWARI_PAPUA_BARAT_.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 440px;
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .home-text {
+      padding-left: 35px;
+    }
+
+    .home-text h1{
+      color: var(--bg-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
     .card {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       transition: 0.3s;

@@ -178,7 +178,7 @@
           ?>
 
       
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -200,7 +200,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -222,7 +222,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>
@@ -294,7 +294,7 @@
           ?>
 
       
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -316,7 +316,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -338,7 +338,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>
@@ -410,7 +410,7 @@
           ?>
 
       
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -432,7 +432,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -454,7 +454,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>

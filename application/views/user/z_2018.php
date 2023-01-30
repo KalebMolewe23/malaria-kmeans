@@ -58,8 +58,8 @@
         <img src="<?= base_url('assets/image/masni.png') ?>" width="3%" alt=""><b>C1</b>&nbsp;&nbsp;
         <img src="<?= base_url('assets/image/selatan.png') ?>" width="3%" alt=""><b>C2</b>&nbsp;&nbsp;
         <img src="<?= base_url('assets/image/prafi.png') ?>" width="3%" alt=""><b>C3</b>&nbsp;&nbsp;
-        <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">Zona Tinggi</button></a>&nbsp;&nbsp;
-        <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">Zona Sedang</button></a>&nbsp;&nbsp;s
+        <!-- <a href="<?= base_url('user/zona_merah_2019'); ?>"><button type="submit" class="btn btn-danger">C1</button></a>&nbsp;&nbsp;
+        <a href="<?= base_url('user/zona_kuning_2019'); ?>"><button type="submit" class="btn btn-alert">C2</button></a>&nbsp;&nbsp;s
         <a href="<?= base_url('user/zona_hijau_2019'); ?>"><button type="submit" class="btn btn-success">Zona Rendah</button></a> -->
       </div>
       <br>
@@ -178,7 +178,7 @@
           ?>
 
       
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -200,7 +200,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -222,7 +222,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>
@@ -294,7 +294,7 @@
           ?>
 
       
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -316,7 +316,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -338,7 +338,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Tinggi</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>
@@ -410,7 +410,7 @@
           ?>
 
       
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C1</h5>
           <table>
             <thead>
               <tr>
@@ -432,7 +432,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Sedang</h5>
+          <br><h5>C2</h5>
           <table>
             <thead>
               <tr>
@@ -454,7 +454,7 @@
             </tbody>
           </table>
           
-          <br><h5>Zona Rendah</h5>
+          <br><h5>C3</h5>
           <table>
             <thead>
               <tr>
@@ -576,7 +576,7 @@
     $warmare = $this->db->get('district')->row('name');
     
 
-    // zona tinggi
+    // C1
     foreach ($c1 as $value_1) {
   ?>
 
@@ -611,7 +611,7 @@
   <?php } ?>
 
   <?php
-    // zona Sedang
+    // C2
     foreach ($c2 as $value_2) {
   ?>
 
